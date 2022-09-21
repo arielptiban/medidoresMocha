@@ -1,0 +1,34 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bootstrap-icons": "^1.8.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "email-validator": "^2.0.4",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "flatpickr": "^4.6.13",
+    "get-element": "^0.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "node-localstorage": "^2.2.1",
+    "nodemailer": "^6.7.5",
+    "pdfkit": "^0.13.0",
+    "pdfkit-construct": "^1.2.3",
+    "sessionstorage": "^0.1.0",
+    "sweetalert2": "^11.4.18",
+    "udv-ec": "^1.0.1"
+  }
+}

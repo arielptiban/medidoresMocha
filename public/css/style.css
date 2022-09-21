@@ -1,0 +1,7 @@
+.btn-bd-primary{font-weight: 600; color:#ffff; background-color:  #049741 ; border-color:  #049741 ;}
+.btn-bd-primary:hover, .btn-bd-primary:active{color: #fff; background-color:  #045c15 ; border-color:  #045c15 ;}
+.btn-bd-primary:focus{box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25)}
+
+.btn-bd-secondary{font-weight: 600; color:#ffff; background-color:  #8c8d8d  ; border-color:  #8c8d8d  ;}
+.btn-bd-secondary:hover, .btn-bd-secondary:active{color: #fff; background-color:  #636464  ; border-color:  #636464  ;}
+.btn-bd-secondary:focus{box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25)}

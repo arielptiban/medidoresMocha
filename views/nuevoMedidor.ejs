@@ -1,0 +1,185 @@
+<%- include("menu", {Titulo: 'Medidores', pagina: 'Medidores', aInicio: 'nav-link',
+    aUsuarios: 'nav-link', aClientes: 'nav-link', aMedidores: 'nav-link active', aLecturas: 'nav-link',aPerfil: 'nav-link', aContra: 'nav-link'}) %>
+
+
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+      <meta name="generator" content="Hugo 0.98.0">
+      <title>Editar Usuario</title>
+      <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+    
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+    
+        .b-example-divider {
+          height: 3rem;
+          background-color: rgba(0, 0, 0, .1);
+          border: solid rgba(0, 0, 0, .15);
+          border-width: 1px 0;
+          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+    
+        .b-example-vr {
+          flex-shrink: 0;
+          width: 1.5rem;
+          height: 100vh;
+        }
+    
+        .bi {
+          vertical-align: -.125em;
+          fill: currentColor;
+        }
+    
+        .nav-scroller {
+          position: relative;
+          z-index: 2;
+          height: 2.75rem;
+          overflow-y: hidden;
+        }
+    
+        .nav-scroller .nav {
+          display: flex;
+          flex-wrap: nowrap;
+          padding-bottom: 1rem;
+          margin-top: -1px;
+          overflow-x: auto;
+          text-align: center;
+          white-space: nowrap;
+          -webkit-overflow-scrolling: touch;
+        }
+      </style>
+      <link href="/css/form-validation.css" rel="stylesheet">
+    </head>
+    
+    <body class="bg-light">
+    
+      <div class="container">
+        <h1></h1>
+        <main>
+          <div class="row g-5">
+            <div class="col-md-7 col-lg-12">
+              <form action="/nuevoMedidor" method="POST" class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <input type="text" id="idCliente" name="idCliente" readonly hidden >
+                 <div class="col-sm-4">
+                  <label for="codigo" class="form-label">Propietario</label>
+                  <input type="text" class="form-control" id="propietario" name="propietario" placeholder="Propietario" readonly>
+              </div>
+
+              <hr class="my-4">
+
+                <div class="col-sm-3">
+                  <label for="codigo" class="form-label">Código de Medidor</label>
+                  <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código de Medidor" value="<%=codigo%>" required>
+                  <div class="invalid-feedback">
+                      Campo Obligatorio.
+                  </div>
+                </div>
+
+                <div class="col-sm-3">
+                  <label for="cuenta" class="form-label">Nro. Cuenta</label>
+                  <input type="number" class="form-control" id="cuenta" name="cuenta" placeholder="Nro. Cuenta" value="<%=cuenta%>" required>
+                  <div class="invalid-feedback">
+                    Campo obligatorio.
+                  </div>
+                </div>
+    
+              <div class="col-sm-3">
+                <label for="l_ingreso" class="form-label">Lectura de ingreso</label>
+                <input type="NUMBER" class="form-control" id="l_ingreso" name="l_ingreso" placeholder="Lectura de ingreso" value="<%=ingreso%>" required>
+                <div class="invalid-feedback">
+                  Campo obligatorio.
+                </div>
+              </div>
+
+              </div>    
+                <hr class="my-4">
+                <div class="col-sm-4">
+                  <button class="w-45  btn btn-primary " type="submit">Registrar</button>
+                  <a href="/clientes" type="button" class="w-45 btn btn-secondary">Cancelar</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+
+      </div>
+      
+      
+      <script src="/js/bootstrap.bundle.min.js"></script>
+      <script src="/js/form-validation.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+      <script>
+        
+        const keyValue = window.location.search
+        const parameters = new URLSearchParams(keyValue);
+        const id = parameters.get('cliente')
+        const prop = parameters.get('prop')
+        const propA =  parameters.get('amp;prop')
+
+        if(keyValue){
+          document.getElementById("idCliente").setAttribute('value', id)
+          document.getElementById("propietario").setAttribute('value', prop);
+        }
+
+        if(keyValue && propA == null){
+          document.getElementById("propietario").setAttribute('value', prop);
+        }else{
+          document.getElementById("propietario").setAttribute('value', propA);
+        }
+
+        if(!keyValue){
+          document.getElementById("idCliente").setAttribute('value', '')
+          document.getElementById("propietario").setAttribute('value', '');
+        }
+        
+        <% if(alert) { %>
+
+          Swal.fire({
+            title: "<%= alertTitle %>" ,
+            text: "<%= alertMessage %>",
+            icon: "<%= alertIcon %>",
+            showConfirmButton: <%= showConfirmButton %>,
+            timer: <%= timer %>
+          }) .then(()=>{
+           Swal.close()
+           window.location =  "<%= ruta %>"
+          })
+      <% } %>
+      
+      <% if(alertSalir) { %>
+
+      Swal.fire({
+        title: "<%= alertTitle %>" ,
+        text: "<%= alertMessage %>",
+        icon: "<%= alertIcon %>",
+        showConfirmButton: <%= showConfirmButton %>,
+        timer: <%= timer %>
+      }) .then(()=>{
+        window.location =  "<%= ruta %>"
+      })
+  
+  <% } %>
+  
+
+      </script>
+
+     
+      
+    
+    
+    </body>
